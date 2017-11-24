@@ -55,6 +55,7 @@ GET		/v1/org/type/list		@controllers.organisationmanagement.OrganisationControll
 POST	/v1/org/type/create		@controllers.organisationmanagement.OrganisationController.createOrgType()
 PATCH	/v1/org/type/update		@controllers.organisationmanagement.OrganisationController.updateOrgType()
 
+
 #page management api
 POST	/v1/page/create				  @controllers.pagemanagement.PageController.createPage()
 PATCH	/v1/page/update				  @controllers.pagemanagement.PageController.updatePage()

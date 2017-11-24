@@ -37,7 +37,7 @@ public class LearnerController extends BaseController {
    */
   public Promise<Result> getEnrolledCourses(String uid) {
     try {
-      Map<String, Object> map = new HashMap<>();
+      Map<String, Object> map = new HashMap();
       map.put(JsonKey.USER_ID, uid);
       map.put(JsonKey.REQUESTED_BY, ctx().flash().get(JsonKey.USER_ID));
       Request request = new Request();
@@ -66,7 +66,7 @@ public class LearnerController extends BaseController {
       reqObj.setRequestId(ExecutionContext.getRequestId());
       reqObj.setOperation(ActorOperations.ENROLL_COURSE.getValue());
       reqObj.setEnv(getEnvironment());
-      HashMap<String, Object> innerMap = new HashMap<>();
+      HashMap<String, Object> innerMap = new HashMap();
       innerMap.put(JsonKey.COURSE, reqObj.getRequest());
       innerMap.put(JsonKey.REQUESTED_BY,ctx().flash().get(JsonKey.USER_ID));
       innerMap.put(JsonKey.HEADER, getAllRequestHeaders(request()));
@@ -83,7 +83,7 @@ public class LearnerController extends BaseController {
    * @return Map<String, String>
    */
   private Map<String, String> getAllRequestHeaders(play.mvc.Http.Request request) {
-    Map<String, String> map = new HashMap<>();
+    Map<String, String> map = new HashMap();
     Map<String, String[]> headers = request.headers();
     Iterator<Entry<String, String[]>> itr = headers.entrySet().iterator();
     while (itr.hasNext()) {
@@ -120,7 +120,7 @@ public class LearnerController extends BaseController {
   @SuppressWarnings("unchecked")
   private Map<String, Object> createRequest(Request reqObj) {
 
-    HashMap<String, Object> innerMap = new HashMap<>();
+    HashMap<String, Object> innerMap = new HashMap();
     innerMap.put(JsonKey.REQUESTED_BY,ctx().flash().get(JsonKey.USER_ID));
     innerMap.put(JsonKey.USER_ID, reqObj.getRequest().get(JsonKey.USER_ID));
 
@@ -165,7 +165,7 @@ public class LearnerController extends BaseController {
       reqObj.setOperation(ActorOperations.ADD_CONTENT.getValue());
       reqObj.setRequestId(ExecutionContext.getRequestId());
       reqObj.setEnv(getEnvironment());
-      HashMap<String, Object> innerMap = new HashMap<>();
+      HashMap<String, Object> innerMap = new HashMap();
       innerMap.put(JsonKey.CONTENTS, reqObj.getRequest().get(JsonKey.CONTENTS));
       innerMap.put(JsonKey.REQUESTED_BY,ctx().flash().get(JsonKey.USER_ID));
       innerMap.put(JsonKey.USER_ID, reqObj.getRequest().get(JsonKey.USER_ID));
